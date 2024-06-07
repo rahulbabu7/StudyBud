@@ -9,5 +9,6 @@ from . import views   #importing the views
 
 
 urlpatterns = [
-    path('',views.home,name ="home")   #adding name to the route is a best practice as it have many advantages  names help us to access a particular views
+    path('',views.home,name ="home"),  #adding name to the route is a best practice as it have many advantages  names help us to access a particular views
+    path('room/',views.room,name="room")
 ]
