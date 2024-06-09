@@ -3,6 +3,23 @@ from django.http import HttpResponse  #for returing a http response
 
 # Create your views here.
 
+rooms = [
+    {
+        'id' : 1,
+        'name' : 'lets learn python'
+    },
+       {
+        'id' : 2,
+        'name' : 'lets learn Django'
+    },
+   {
+        'id' : 3,
+        'name' : 'lets learn Vue'
+    },
+
+
+]
+
 
 
 
@@ -15,4 +32,4 @@ def home(request):
 
 def room(request):
     # return HttpResponse("Room")
-    return render(request,'room.html')
+    return render(request,'room.html',{'rooms':rooms})
