@@ -32,4 +32,5 @@ def home(request):
 
 def room(request):
     # return HttpResponse("Room")
-    return render(request,'room.html',{'rooms':rooms})
+    context = {'rooms':rooms}
+    return render(request,'room.html',context)
