@@ -25,12 +25,17 @@ rooms = [
 
 def home(request):
     # return HttpResponse("HOme")
-    return render(request,'home.html') #This line attempts to render an HTML template
+    context = {'rooms':rooms}
+    return render(request,'base/home.html',context) #This line attempts to render an HTML template
 #The render function is a shortcut provided by Django to 
 # combine a template with a context dictionary and 
 # return an HttpResponse object with that rendered text.
 
-def room(request):
+def room(request,id):
     # return HttpResponse("Room")
-    context = {'rooms':rooms}
-    return render(request,'room.html',context)
+    room = None
+    for i in rooms:
+        if i['id'] == int(id):
+            room = i
+    context = {'room':room}
+    return render(request,'base/room.html',context)
