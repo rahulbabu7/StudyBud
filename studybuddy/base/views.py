@@ -35,10 +35,10 @@ def home(request):
 
 def room(request,id):
     # return HttpResponse("Room")
-    rooms = Room.objects.all()
-    room = None
-    for i in rooms:
-        if i['id'] == int(id):
-            room = i
+    room = Room.objects.get(id=id)
+    # room = None
+    # for i in rooms:
+    #     if i['id'] == int(id):
+    #         room = i
     context = {'room':room}
     return render(request,'base/room.html',context)
