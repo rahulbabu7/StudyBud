@@ -1,30 +1,32 @@
 from django.shortcuts import render
 from django.http import HttpResponse  #for returing a http response 
+from .models import Room
 
 # Create your views here.
 
-rooms = [
-    {
-        'id' : 1,
-        'name' : 'lets learn python'
-    },
-       {
-        'id' : 2,
-        'name' : 'lets learn Django'
-    },
-   {
-        'id' : 3,
-        'name' : 'lets learn Vue'
-    },
+# rooms = [
+#     {
+#         'id' : 1,
+#         'name' : 'lets learn python'
+#     },
+#        {
+#         'id' : 2,
+#         'name' : 'lets learn Django'
+#     },
+#    {
+#         'id' : 3,
+#         'name' : 'lets learn Vue'
+#     },
 
 
-]
+# ]
 
 
 
 
 def home(request):
     # return HttpResponse("HOme")
+    rooms = Room.objects.all()
     context = {'rooms':rooms}
     return render(request,'base/home.html',context) #This line attempts to render an HTML template
 #The render function is a shortcut provided by Django to 
@@ -33,6 +35,7 @@ def home(request):
 
 def room(request,id):
     # return HttpResponse("Room")
+    rooms = Room.objects.all()
     room = None
     for i in rooms:
         if i['id'] == int(id):
